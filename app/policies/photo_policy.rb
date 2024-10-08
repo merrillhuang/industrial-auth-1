@@ -1,0 +1,2 @@
+class PhotoPolicy
+end
