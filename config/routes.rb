@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :comments, except: [:index, :show]
-  resources :follow_requests, except: [:index, :edit, :show, :new]
+  resources :follow_requests
   resources :likes, only: [:create, :destroy]
   resources :photos, except: [:index]
 
