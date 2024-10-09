@@ -5,6 +5,26 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def show
+    authorize @user
+  end
+
+  def liked
+    authorize @user
+  end
+
+  def discover
+    authorize @user
+  end
+
+  def followers
+    authorize @user
+  end
+
+  def following
+    authroize @user
+  end
+
   private
 
     def set_user
