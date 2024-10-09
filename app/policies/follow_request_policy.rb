@@ -5,6 +5,31 @@ class FollowRequestPolicy < ApplicationPolicy
   # code, beware of possible changes to the ancestors:
   # https://gist.github.com/Burgestrand/4b4bc22f31c8a95c425fc0e30d7ef1f5
 
+  attr_reader :user, :follow_request
+
+  def initialize(user, follow_request)
+    @user = user
+    @follow_request = follow_request
+  end
+
+  # all users should be able to create new follow requests
+  
+  def create?
+    true
+  end
+
+  # only recipient should be able to update a follow request's status
+
+  def update?
+    user == follow_request.recipient
+  end
+
+  # only recipient should be able to delete a follow request
+
+  def destroy?
+    user == follow_request.sender
+  end
+
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
