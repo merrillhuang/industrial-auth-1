@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    authroize @user
+    authorize @user
   end
 
   private
