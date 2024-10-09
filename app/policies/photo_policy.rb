@@ -26,11 +26,15 @@ class PhotoPolicy < ApplicationPolicy
     update?
   end
   
+  # only allow updating if photo belongs to user
+
   def update?
-    user == photo.owner # only allow updating if photo belongs to current user
+    user == photo.owner
   end
 
+  # only allow deleting if photo belongs to user
+
   def destroy?
-    user == photo.owner # only allow deleting if photo belongs to current user
+    user == photo.owner 
   end
 end
