@@ -48,7 +48,7 @@ class CommentPolicy < ApplicationPolicy
   # only the comment's author should be allowed to delete the comment
   
   def destroy?
-      user == comment.author
+    user == comment.author
   end
 
   class Scope < ApplicationPolicy::Scope
