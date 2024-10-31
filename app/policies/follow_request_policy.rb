@@ -24,7 +24,7 @@ class FollowRequestPolicy < ApplicationPolicy
     user == follow_request.recipient
   end
 
-  # only recipient should be able to delete a follow request
+  # only sender should be able to delete a follow request
 
   def destroy?
     user == follow_request.sender
