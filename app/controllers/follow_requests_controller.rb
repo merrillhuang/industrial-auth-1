@@ -1,5 +1,5 @@
 class FollowRequestsController < ApplicationController
-  before_action :set_follow_request, only: %i[ show edit update destroy is_recipient is_authorized_user]
+  before_action :set_follow_request, only: %i[ show edit update destroy ]
   before_action :is_recipient, only: [:update]
   before_action :is_sender, only: [:destroy]
 

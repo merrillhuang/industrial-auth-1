@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy is_author]
+  before_action :set_comment, only: %i[ show edit update destroy is_author ]
   before_action :is_author, only: [:destroy, :edit, :update]
   before_action :is_an_authorized_user, only: [:create]
 
