@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :is_author, only: [:destroy, :edit, :update]
   before_action :is_an_authorized_user, only: [:create]
 
   # GET /comments or /comments.json
