@@ -71,5 +71,6 @@ class LikesController < ApplicationController
     def is_owner
       if current_user != @like.fan
         redirect_back fallback_location: root_url, alert: "Not authorized"
+      end
     end
 end
