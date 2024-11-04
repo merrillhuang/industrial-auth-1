@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: %i[ show edit update destroy ]
+  before_action :set_like, only: %i[ show edit update destroy is_owner ]
+  before_action :is_owner, only: [:create, :destroy]
 
   # GET /likes or /likes.json
   def index
@@ -65,5 +66,11 @@ class LikesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def like_params
       params.require(:like).permit(:fan_id, :photo_id)
+    end
+
+    def is_owner
+      if current_user != @like.fan
+        redirect_back fallback_location: root_url, alert: "Not authorized"
+      end
     end
 end
